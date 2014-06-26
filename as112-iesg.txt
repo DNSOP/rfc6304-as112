@@ -7,78 +7,121 @@ the corresponding template dated 24 February 2012.
 > is this the proper type of RFC?  Is this type of RFC indicated in the
 > title page header?
 
-Requested status is Informational.
+   Requested status is Informational.
 
-This document describes an approach for mitigating a key deficiency
-in the existing ("Direct Delegation") model of AS112 deployment
-that makes use of DNAME, namely the difficulty in adding or dropping
-particular zones from the AS112 infrastructure.
+   This document describes an approach for mitigating a key deficiency
+   in the existing ("Direct Delegation") model of AS112 deployment
+   that makes use of DNAME, namely the difficulty in adding or
+   dropping particular zones from the AS112 infrastructure.
 
-The use of DNAME for this purpose is novel, and while some experiments
-(as described in this document) have indicated widespread support
-across the Internet for DNAME and have confirmed that the approach
-is functionally feasible, DNAME has not been previously used for
-AS112 in the wild. Note that the document does not propose immediate
-refactoring of the direct delegation approach for existing zones
-sunk in the AS112 infrastructure.
+   The use of DNAME for this purpose is novel, and while some
+   experiments (as described in this document) have indicated
+   widespread support across the Internet for DNAME and have confirmed
+   that the approach is functionally feasible, DNAME has not been
+   previously used for AS112 in the wild. Note that the document
+   does not propose immediate refactoring of the direct delegation
+   approach for existing zones sunk in the AS112 infrastructure.
 
-Given the experimental aspects of this approach the document shepherd
-and the authors are not opposed to Experimental status. However,
-the document shepherd feels that Informational is preferred given
-plausible indications that the dependent mechanism (i.e. DNAME) are
-well-defined, well-deployed and suitable for the purpose.
+   Given the experimental aspects of this approach the document
+   shepherd and the authors are not opposed to Experimental status.
+   However, the document shepherd feels that Informational is
+   preferred given plausible indications that the dependent mechanism
+   (i.e. DNAME) are well-defined, well-deployed and suitable for
+   the purpose.
 
 > (2) The IESG approval announcement includes a Document Announcement
 > Write-Up. Please provide such a Document Announcement Write-Up. Recent
 > examples can be found in the "Action" announcements for approved
-> documents. The approval announcement contains the following sections:
-> 
-> Technical Summary
-> 
->   Relevant content can frequently be found in the abstract
->   and/or introduction of the document. If not, this may be
->   an indication that there are deficiencies in the abstract
->   or introduction.
-> 
-> Working Group Summary
-> 
->   Was there anything in WG process that is worth noting? For
->   example, was there controversy about particular points or
->   were there decisions where the consensus was particularly
->   rough?
-> 
-> Document Quality
-> 
->   Are there existing implementations of the protocol? Have a
->   significant number of vendors indicated their plan to
->   implement the specification? Are there any reviewers that
->   merit special mention as having done a thorough review,
->   e.g., one that resulted in important changes or a
->   conclusion that the document had no substantive issues? If
->   there was a MIB Doctor, Media Type or other expert review,
->   what was its course (briefly)? In the case of a Media Type
->   review, on what date was the request posted?
-> 
-> Personnel
-> 
->   Who is the Document Shepherd? Who is the Responsible Area
->   Director?
-> 
+> documents.
+
+Technical Summary
+
+   Many sites connected to the Internet make use of IPv4 addresses
+   that are not globally unique.  Examples are the addresses
+   designated in RFC 1918 for private use within individual sites.
+
+   Devices in such environments may occasionally originate Domain
+   Name System (DNS) queries (so-called "reverse lookups") corresponding
+   to those private-use addresses.  Since the addresses concerned
+   have only local significance, it is good practice for site
+   administrators to ensure that such queries are answered locally.
+   However, it is not uncommon for such queries to follow the normal
+   delegation path in the public DNS instead of being answered
+   within the site.
+
+   It is not possible for public DNS servers to give useful answers
+   to such queries.  In addition, due to the wide deployment of
+   private-use addresses and the continuing growth of the Internet,
+   the volume of such queries is large and growing.  The AS112
+   project aims to provide a distributed sink for such queries in
+   order to reduce the load on the IN-ADDR.ARPA authoritative
+   servers.  The AS112 project is named after the Autonomous System
+   Number (ASN) that was assigned to it.
+
+   The AS112 project does not accommodate the addition and removal
+   of DNS zones elegantly.  Since additional zones of definitively
+   local significance are known to exist, this presents a problem.
+   This document describes modifications to the deployment and use
+   of AS112 infrastructure that will allow zones to be added and
+   dropped much more easily.
+
+Working Group Summary
+
+   There were no notable outcomes from the WG process or in the
+   working-group last call. The dnsop working group chair observed
+   strong consensus on the text and the approach described by the
+   text following presentations and discussion on the mailing list
+   and in multiple in-person meetings.
+
+Document Quality
+
+   The document describes the use of protocols that are already
+   defined and implemented to augment AS112 infrastructure. The
+   approach was validated by experiment, and an abridged summary
+   of that experiment and its results are included in the document.
+
+   The Acknowledgements section of the diagram does not omit to
+   mention any significant reviewer.
+
+   The working group review included input from participants with
+   significant DNS protocol and operations expertise, and in the
+   opionion of this document shepherd and the working group chairs
+   no additional expert consultation is required.
+
+Personnel
+
+   The document shepherd is Tim Wicinski.
+
+   The dnsop working group chairs are Tim Wicinski and Suzanne
+   Woolf.
+
+   The responsible area director is Joel Jaeggli.
+
 > (3) Briefly describe the review of this document that was performed by
 > the Document Shepherd.  If this version of the document is not ready
 > for publication, please explain why the document is being forwarded to
 > the IESG.
-> 
+
+   The document shepherd reviewed this document for clarity, potential
+   for ambiguity or self-contradiction, technical accuracy and
+   operational impact.
+
+   It is the document shepherd's opinion that this document is ready
+   to forward to the IESG.
+
 > (4) Does the document Shepherd have any concerns about the depth or
 > breadth of the reviews that have been performed?
-> 
-> 
-> 
+
+   The document shepherd has no such concern.
+
 > (5) Do portions of the document need review from a particular or from
 > broader perspective, e.g., security, operational complexity, AAA, DNS,
 > DHCP, XML, or internationalization? If so, describe the review that
 > took place.
-> 
+
+   In the opinion of the document shepherd, no further or wider review
+   is necessary.
+
 > (6) Describe any specific concerns or issues that the Document Shepherd
 > has with this document that the Responsible Area Director and/or the
 > IESG should be aware of? For example, perhaps he or she is uncomfortable
@@ -86,43 +129,82 @@ well-defined, well-deployed and suitable for the purpose.
 > is a need for it. In any event, if the WG has discussed those issues and
 > has indicated that it still wishes to advance the document, detail those
 > concerns here.
-> 
+
+   The document shepherd has no such concern and has identified no
+   such issue.
+
 > (7) Has each author confirmed that any and all appropriate IPR
 > disclosures required for full conformance with the provisions of BCP 78
 > and BCP 79 have already been filed. If not, explain why.
-> 
+
+   No IPR disclosures have been made for this document.
+
+   The authors have indicated that no IPR disclosures are intended
+   to be made.
+
+   The document shepherd has identified no reasons for an IPR
+   disclosure to be made.
+
 > (8) Has an IPR disclosure been filed that references this document?
 > If so, summarize any WG discussion and conclusion regarding the IPR
 > disclosures.
-> 
+
+   No such IPR disclosure has been made.
+
 > (9) How solid is the WG consensus behind this document? Does it
 > represent the strong concurrence of a few individuals, with others
 > being silent, or does the WG as a whole understand and agree with it?
-> 
+
+   The document shepherd and dnsop working group chairs have identified
+   strong working group consensus for this document to proceed.
+
+   The document has been discussed at some length on the dnsop mailing
+   list and has also been presented in multiple face-to-face meetings.
+
 > (10) Has anyone threatened an appeal or otherwise indicated extreme
 > discontent? If so, please summarise the areas of conflict in separate
 > email messages to the Responsible Area Director. (It should be in a
 > separate email because this questionnaire is publicly available.)
-> 
+
+   The document shepherd and working group chairs are aware of no
+   such threat or discontent.
+
 > (11) Identify any ID nits the Document Shepherd has found in this
 > document. (See http://www.ietf.org/tools/idnits/ and the Internet-Drafts
 > Checklist). Boilerplate checks are not enough; this check needs to be
 > thorough.
-> 
+
+   No I-D nits have been identified by the document shepherd.
+
 > (12) Describe how the document meets any required formal review
 > criteria, such as the MIB Doctor, media type, and URI type reviews.
-> 
+
+   No such formal review is required for this document.
+
 > (13) Have all references within this document been identified as
 > either normative or informative?
-> 
+
+   All references have been identified as either normative or
+   informative.
+
 > (14) Are there normative references to documents that are not ready for
 > advancement or are otherwise in an unclear state? If such normative
 > references exist, what is the plan for their completion?
-> 
+
+   This document contains a normative reference to
+   draft-ietf-dnsop-rfc6304bis which is being submitted to the IESG
+   in a bundle with this document.  The document shepherd suggests
+   that both documents be considered by the IESG together, since
+   they reference each other. Following direction from the IESG to
+   proceed, both documents would most naturally proceed through the
+   publication process together.
+
 > (15) Are there downward normative references references (see RFC 3967)?
 > If so, list these downward references to support the Area Director in
 > the Last Call procedure.
-> 
+
+   There are no downward normative references.
+
 > (16) Will publication of this document change the status of any
 > existing RFCs? Are those RFCs listed on the title page header, listed
 > in the abstract, and discussed in the introduction? If the RFCs are not
@@ -130,8 +212,10 @@ well-defined, well-deployed and suitable for the purpose.
 > part of the document where the relationship of this document to the
 > other RFCs is discussed. If this information is not in the document,
 > explain why the WG considers it unnecessary.
-> 
-> 
+
+   Publication of this document will not change the status of any
+   existing RFC.
+
 > (17) Describe the Document Shepherd's review of the IANA considerations
 > section, especially with regard to its consistency with the body of the
 > document. Confirm that all protocol extensions that the document makes
@@ -141,14 +225,32 @@ well-defined, well-deployed and suitable for the purpose.
 > detailed specification of the initial contents for the registry, that
 > allocations procedures for future registrations are defined, and a
 > reasonable name for the new registry has been suggested (see RFC 5226).
-> 
+
+   The document shepherd has been informed by the authors that the
+   IANA Considerations section has already been informally reviewed
+   by IANA staff, and that changes informally suggested have been
+   implemented.
+
+   All number resource assignments and directions relating to the
+   delegation of a zone from the ARPA TLD have been confirmed (again,
+   informally) to be clear and actionable.
+
+   No new registries are requested by this document.
+
+   The use of a name under the ARPA TLD requires IAB approval, per
+   RFC 3172. This document includes an IAB Considerations section
+   that is sufficient to request and document the IAB's review, in
+   the opinion of the document shepherd.
+
 > (18) List any new IANA registries that require Expert Review for future
 > allocations. Provide any public guidance that the IESG would find
 > useful in selecting the IANA Experts for these new registries.
-> 
+
+   No new registries are requested by this document.
+
 > (19) Describe reviews and automated checks performed by the Document
 > Shepherd to validate sections of the document written in a formal
 > language, such as XML code, BNF rules, MIB definitions, etc.
-> 
-> 
-> 
+
+   This document contains no such section.
+
