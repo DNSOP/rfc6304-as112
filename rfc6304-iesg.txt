@@ -1,5 +1,5 @@
 
-This is a document shpherd write-up of draft-ietd-dnsop-rfc6304bis-02,
+This is a document shpherd write-up of draft-ietd-dnsop-rfc6304bis-03,
 structured according to the requirements of RFC 4858 and following
 the corresponding template dated 24 February 2012.
 
@@ -101,8 +101,10 @@ Personnel
    No appeal has been indicated and there is no extreme discontent.
 
 11)
-   All nits raised are in reference to the subject matter.  However,
-   there are two nits raised:
+   Most nits raised are in reference to the subject matter (e.g.
+   the use of non-RFC5737 addresses for good reason, since the
+   addresses specified are the actual addresses that need to be
+   used, not example addresses).
 
   == Missing Reference: 'THIS DOCUMENT' is mentioned on line 793, but not
      defined
@@ -111,12 +113,6 @@ Personnel
    registration in an IANA registry. This nit will be addressed upon
    the assignment of an RFC number to this document, as part of the
    RFC Editor's review.
-
-  -- Obsolete informational reference (is this intentional?): RFC 5735
-     (Obsoleted by RFC 6890)
-
-   This nit will be addressed in an -03 submitted prior to submission
-   to the IESG.
 
 (12)
 
