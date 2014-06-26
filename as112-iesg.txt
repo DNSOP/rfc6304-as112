@@ -28,7 +28,7 @@ the corresponding template dated 24 February 2012.
 
 2)
 
-Technical Summary
+Technical Summary:
 
    Many sites connected to the Internet make use of IPv4 addresses
    that are not globally unique.  Examples are the addresses
@@ -59,7 +59,7 @@ Technical Summary
    of AS112 infrastructure that will allow zones to be added and
    dropped much more easily.
 
-Working Group Summary
+Working Group Summary:
 
    There were no notable outcomes from the WG process or in the
    working-group last call. The dnsop working group chair observed
@@ -67,7 +67,7 @@ Working Group Summary
    text following presentations and discussion on the mailing list
    and in multiple in-person meetings.
 
-Document Quality
+Document Quality:
 
    The document describes the use of protocols that are already
    defined and implemented to augment AS112 infrastructure. The
@@ -82,7 +82,7 @@ Document Quality
    opionion of this document shepherd and the working group chairs
    no additional expert consultation is required.
 
-Personnel
+Personnel:
 
    The document shepherd is Tim Wicinski.
 
@@ -133,7 +133,8 @@ Personnel
    The document shepherd and working group chairs are aware of no
    such threat or discontent.
 
-11)   No I-D nits have been identified by the document shepherd.
+11)
+   No I-D nits have been identified by the document shepherd.
 
 12)
    No such formal review is required for this document.

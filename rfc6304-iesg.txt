@@ -8,7 +8,7 @@ the corresponding template dated 24 February 2012.
    consistent with RFC6304 which it aims to replace.
 
 2)
-Technical Summary
+Technical Summary:
 
    Many sites connected to the Internet make use of IPv4 addresses that
    are not globally-unique.  Examples are the addresses designated in
@@ -36,7 +36,7 @@ Technical Summary
    for which query traffic will be sunk at AS112 nodes, using DNAME,
    whilst still supporting direct delegations to AS112 name servers.
 
-Working Group Summary
+Working Group Summary:
 
    Since this document was an update of RFC 6304, the point was
    raised that the Internet had changed some and that there were
@@ -44,14 +44,14 @@ Working Group Summary
    around IPv6 transport, and also to allow for using DNAME.  The
    outcome of this discussion was draft-ietf-dnsop-as112-dname-03.
 
-Document Quality
+Document Quality:
 
    The document updates an existing RFC that has gone through the
    IETF RFC editorial process and is reflecting changing best
    practices. Therefore existing implementations exist, and have
    been observed for some time.
 
-Personnel
+Personnel:
 
    The Document Shepherd is Tim Wicinski.
 
@@ -115,9 +115,7 @@ Personnel
    RFC Editor's review.
 
 (12)
-
    No such formal review is needed.
-
 
 13) 
    All references have been identified as either normative or
@@ -131,7 +129,6 @@ Personnel
    direction from the IESG to proceed, both documents would most
    naturally proceed through the publication process together.
 
-
 15) 
    There are no downward normative references.
 
@@ -139,7 +136,6 @@ Personnel
    This document is intended to obsolete RFC6304.
 
 17)
-
    This document requests that an AAAA RRSet be added to each of
    PRISONER.IANA.ORG, BLACKHOLE-1.IANA.ORG and BLACKHOLE-2.IANA.ORG.
    The request is clear and actionable.
@@ -152,11 +148,9 @@ Personnel
    This document does not create any new IANA registries.
 
 (18)
-
    This document does not create any new IANA registries.
 
 (19)
-
    The document shepherd has performed checks (or, in some cases,
    has delegated checks to others) to confirm that the configuration
    examples provided for BIND9 and Quagga are accurate.
