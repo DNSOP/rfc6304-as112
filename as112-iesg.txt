@@ -82,7 +82,8 @@ Document Quality
    opionion of this document shepherd and the working group chairs
    no additional expert consultation is required.
 
-Personnel:
+Personnel
+
    The document shepherd is Tim Wicinski.
 
    The dnsop working group chairs are Tim Wicinski and Suzanne
