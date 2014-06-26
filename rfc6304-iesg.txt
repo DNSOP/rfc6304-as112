@@ -1,116 +1,159 @@
 
-This is a document shpherd write-up of draft-ietd-dnsop-as112-dname-03,
+This is a document shpherd write-up of draft-ietd-dnsop-rfc6304bis-02,
 structured according to the requirements of RFC 4858 and following
 the corresponding template dated 24 February 2012.
 
 1) 
-  draft-ietf-dnsop-rfc6304bis is being requested an an Informational RFC, and is mentioned as such.
+   Intended status of draft-ietf-dnsop-rfc6304bis is Informational,
+   consistent with RFC6304 which it aims to replace.
 
 2)
-Technical Summary:
-  This document updates RFC6304 that advices how to facilitate the addition and removal of zones for which query traffic will be sunk at AS112 nodes, using DNAME, while still supporting direct delegations to AS112 name servers.
+Technical Summary
 
-Working Group Summary:
-  Since this document was an update of RFC 6304, the point was raised that the 
-  Internet had changed some and that there were better mechanisms to aid in 
-  these configurations. Specially around IPv6 transport, and also to allow for 
-  using DNAME.   
-  The outcome of this discussion was draft-ietf-dnsop-as112-dname-03
+   Many sites connected to the Internet make use of IPv4 addresses that
+   are not globally-unique.  Examples are the addresses designated in
+   RFC 1918 for private use within individual sites.
 
-Document Quality:
-  The document updates an existing RFC that has gone through the IETF RFC
-  editorial process and is reflecting changing best practices. Therefore 
-  existing implementations exist, and have been observed for some time. 
+   Devices in such environments may occasionally originate Domain Name
+   System (DNS) queries (so-called "reverse lookups") corresponding to
+   those private-use addresses.  Since the addresses concerned have only
+   local significance, it is good practice for site administrators to
+   ensure that such queries are answered locally.  However, it is not
+   uncommon for such queries to follow the normal delegation path in the
+   public DNS instead of being answered within the site.
 
-Personnel:  
-  The Document Shepherds is Tim Wicinski.
+   It is not possible for public DNS servers to give useful answers to
+   such queries.  In addition, due to the wide deployment of private-use
+   addresses and the continuing growth of the Internet, the volume of
+   such queries is large and growing.  The AS112 project aims to provide
+   a distributed sink for such queries in order to reduce the load on
+   the corresponding authoritative servers.  The AS112 project is named
+   after the Autonomous System Number (ASN) that was assigned to it.
 
-  The dnsop working group chairs are Tim Wicinski and Suzanne
-   Woolf
+   RFC6304 described the steps required to install a new AS112 node, and
+   offered advice relating to such a node's operation.  This document
+   updates that advice to facilitate the addition and removal of zones
+   for which query traffic will be sunk at AS112 nodes, using DNAME,
+   whilst still supporting direct delegations to AS112 name servers.
 
-  The Area Director is Joel Jaggeli.
+Working Group Summary
+
+   Since this document was an update of RFC 6304, the point was
+   raised that the Internet had changed some and that there were
+   better mechanisms to aid in these configurations. Specially
+   around IPv6 transport, and also to allow for using DNAME.  The
+   outcome of this discussion was draft-ietf-dnsop-as112-dname-03.
+
+Document Quality
+
+   The document updates an existing RFC that has gone through the
+   IETF RFC editorial process and is reflecting changing best
+   practices. Therefore existing implementations exist, and have
+   been observed for some time.
+
+Personnel
+
+   The Document Shepherd is Tim Wicinski.
+
+   The dnsop working group chairs are Tim Wicinski and Suzanne
+   Woolf.
+
+   The Area Director is Joel Jaggeli.
 
 3)
-  The document shepherd reviewed this document for clarity, potential
-  for ambiguity or self-contradiction, technical accuracy and
-  operational impact.  
+   The document shepherd reviewed this document for clarity, potential
+   for ambiguity or self-contradiction, technical accuracy and
+   operational impact.
 
-  It is the document shepherd's opinion that this document is ready
-  to forward to the IESG.
+   It is the document shepherd's opinion that this document is ready
+   to forward to the IESG.
 
 4) 
-  The Document Shepherd has no concerns about the depth or breath of the
-  reviews. The document has cycled through the WG several times, each with
-  very detailed and useful reviews.
+   The Document Shepherd has no concerns about the depth or breath
+   of the reviews. The document has cycled through the WG several
+   times, each with very detailed and useful reviews.
 
 5)
-  In the view of the Document shepherd, no wider review is necessary.
+   In the view of the Document shepherd, no wider review is necessary.
 
 6) 
-  The Document Shepherd has no such concern and has identified no
+   The Document Shepherd has no such concern and has identified no
    such issue.
 
 7) 
-  No IPR disclosures have been made for this document.
+   No IPR disclosures have been made for this document.
 
-  The authors have indicated that no IPR disclosures are intended
-  to be made.
+   The authors have indicated that no IPR disclosures are intended
+   to be made.
 
-  The document shepherd has identified no reasons for an IPR
-  disclosure to be made.
+   The document shepherd has identified no reasons for an IPR
+   disclosure to be made.
 
 8) 
   No IPR disclosure has been made.
 
 9) 
-  There is solid working group consensus.  The documents were presented in several meetings, as well as a long mailing list discussion, and the consensus all areas have been covered. 
+   There is solid working group consensus.  The documents were
+   presented in several meetings, as well as a long mailing list
+   discussion, and the consensus all areas have been covered.
 
 10) 
-  No appeal has been indicated and there is no extreme discontent.
+   No appeal has been indicated and there is no extreme discontent.
 
 11)
-  All nits raised are in reference to the subject matter.  However, there 
-  are two nits raised which need to be addressed:
+   All nits raised are in reference to the subject matter.  However,
+   there are two nits raised:
 
   == Missing Reference: 'THIS DOCUMENT' is mentioned on line 793, but not
      defined
-  This is in the table under IANA Actions section.
+
+   This is a reference to the document itself for the purposes of
+   registration in an IANA registry. This nit will be addressed upon
+   the assignment of an RFC number to this document, as part of the
+   RFC Editor's review.
 
   -- Obsolete informational reference (is this intentional?): RFC 5735
      (Obsoleted by RFC 6890)
 
-  This does seem to be an issue, though the original document referenced the older RFC.
+   This nit will be addressed in an -03 submitted prior to submission
+   to the IESG.
 
-(12) Describe how the document meets any required formal review
-criteria, such as the MIB Doctor, media type, and URI type reviews.
+(12)
+
+   No such formal review is needed.
+
 
 13) 
    All references have been identified as either normative or
    informative.
 
 14)
-  There is a reference to a document ietf-dnsop-as112-dname which is being submitted to the IESF in a bundle with this document. The document shepherd suggests both documents be considered for the IESG together, since they reference each other.  Following direction from the IESG to
-  proceed, both documents would most naturally proceed through the
-  publication process together.
+   There is a reference to a document ietf-dnsop-as112-dname which
+   is being submitted to the IESG in a bundle with this document.
+   The document shepherd suggests both documents be considered for
+   the IESG together, since they reference each other.  Following
+   direction from the IESG to proceed, both documents would most
+   naturally proceed through the publication process together.
 
 
 15) 
-  There are no downward normative references.
+   There are no downward normative references.
 
 16)
-  Publication of this document will obsolute RFC6304.
+   This document is intended to obsolete RFC6304.
 
 17)
 
-(17) Describe the Document Shepherd's review of the IANA considerations
-section, especially with regard to its consistency with the body of the
-document. Confirm that all protocol extensions that the document makes
-are associated with the appropriate reservations in IANA registries.
-Confirm that any referenced IANA registries have been clearly
-identified. Confirm that newly created IANA registries include a
-detailed specification of the initial contents for the registry, that
-allocations procedures for future registrations are defined, and a
-reasonable name for the new registry has been suggested (see RFC 5226).
+   This document requests that an AAAA RRSet be added to each of
+   PRISONER.IANA.ORG, BLACKHOLE-1.IANA.ORG and BLACKHOLE-2.IANA.ORG.
+   The request is clear and actionable.
+
+   This document registers one code point in the Special-Purpose
+   AS Numbers registry. The registry to be updated is well-described,
+   and informal review of the IANA Considerations section by IANA staff
+   suggests no problem with this registration.
+
+   This document does not create any new IANA registries.
 
 (18) List any new IANA registries that require Expert Review for future
 allocations. Provide any public guidance that the IESG would find
