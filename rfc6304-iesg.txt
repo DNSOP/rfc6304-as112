@@ -150,17 +150,21 @@ Personnel
 
    This document registers one code point in the Special-Purpose
    AS Numbers registry. The registry to be updated is well-described,
-   and informal review of the IANA Considerations section by IANA staff
-   suggests no problem with this registration.
+   and informal review of the IANA Considerations section by IANA
+   staff suggests no problem with this registration.
 
    This document does not create any new IANA registries.
 
-(18) List any new IANA registries that require Expert Review for future
-allocations. Provide any public guidance that the IESG would find
-useful in selecting the IANA Experts for these new registries.
+(18)
 
-(19) Describe reviews and automated checks performed by the Document
-Shepherd to validate sections of the document written in a formal
-language, such as XML code, BNF rules, MIB definitions, etc.
+   This document does not create any new IANA registries.
 
+(19)
+
+   The document shepherd has performed checks (or, in some cases,
+   has delegated checks to others) to confirm that the configuration
+   examples provided for BIND9 and Quagga are accurate.
+
+   The document shepherd confirms that based on all tests performed,
+   the examples are accurate and usable.
 
